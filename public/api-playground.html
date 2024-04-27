@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Playground</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h2>API Playground for GPT Autocat</h2>
+    
+    <div style="width: 30%; float: right; padding-right: 50px;"><em>A proof of concept for using the OpenAI API to categorise products within the Bidspotter, iBidder and Saleroom/Lot-tissimo taxonomies. 
+        <div style="margin-top: 10px;"></div>
+        Currently best on Industrial. No tuning done. Using the current meganav taxonomy for industrial, art, commercial.
+        <div style="margin-top: 10px;"></div>
+        This costs about one-tenth of a cent every usage. If you submit more than 50 lots within 5 mins you will see an error, "Too many requests".<div style="margin-top: 10px;"></div>Humfrey</em>
+    
+    </div>
+
+    <div>
+        <label for="category"><b>Taxonomy:</b></label>
+        <select id="category" style="font-size: 16px; padding: 5px;" onchange="checkCategory()">
+    <option value="industrial-seo" selected="true">Industrial (SEO)</option>
+            <option value="industrial-meganav">Industrial (Bidspotter Meganav)</option>
+            <option value="industrial-autocat">Industrial (Autocat US Industrial)</option>
+            <option value="art">Art (Saleroom Meganav)</option>
+                        <option value="commercial">Commercial (iBidder Meganav)</option>
+            <option value="alibabaCategories">Alibaba</option>
+                        <option value="LiveAuctioneersCategories">Live Auctioneers</option>
+
+        </select>
+    </div>
+    
+    <div>
+        <label for="lotTitle"><b>Lot Title</b> (English or German):</label>
+        <input type="text" id="lotTitle" placeholder="Enter Lot Title"
+            style="width: 58%; font-size: 16px; padding: 10px;" maxlength="90">
+    </div>
+    
+    <div id="auctionTitleContainer">
+        <label for="auctionTitle"><b>Auction Title</b> (English or German):</label>
+        <input type="text" id="auctionTitle" placeholder="Enter Auction Title"
+            style="width: 58%; font-size: 16px; padding: 10px;" maxlength="90">
+    </div>
+
+
+
+
+    <button onclick="callAPI()">Fetch Results</button>
+
+<div id="loadingState" style="display: none;">
+    <div class="spinner"></div>
+</div>
+
+    <h3>API Response:</h3>
+    <pre id="apiResponse" style="width: 58%;"></pre>
+
+
+    <script>
+       function callAPI() {
+            let category = document.getElementById('category').value;
+            let lotTitle = document.getElementById('lotTitle').value;
+
+            // If category is either "commercial" or "art", do not include the auction title in the request.
+           let auctionTitle = (category === 'commercial' || category === 'art') ? "" : document.getElementById('auctionTitle').value;
+
+           let encodedCategory = encodeURIComponent(category);
+           let encodedLotTitle = encodeURIComponent(lotTitle);
+           let apiUrl = `/categorise/${encodedCategory}/?lotTitle=${encodedLotTitle}`;
+
+           if (auctionTitle !== "") {
+               let encodedAuctionTitle = encodeURIComponent(auctionTitle);
+               apiUrl += `&auctionTitle=${encodedAuctionTitle}`;
+           }
+        
+           // Show the loading state
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('apiResponse').textContent = ``;
+
+
+            $.get(apiUrl, function (data, status) {
+                // Hide the loading state
+                document.getElementById('loadingState').style.display = 'none';
+
+                // Display the response data
+                document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+            }).fail(function (jqXHR, status, error) {
+                // Hide the loading state
+                document.getElementById('loadingState').style.display = 'none';
+
+                // Handle error
+                document.getElementById('apiResponse').textContent = `Error: ${error}`;
+            });
+        }
+    function checkCategory() {
+        let category = document.getElementById('category').value;
+
+        if (category === 'commercial' || category === 'art') {
+            document.getElementById('auctionTitleContainer').style.display = 'none';
+        } else {
+            document.getElementById('auctionTitleContainer').style.display = 'block';
+        }
+    }
+
+    </script>
+
+</body>
+
+</html>
