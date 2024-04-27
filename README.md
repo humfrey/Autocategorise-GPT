@@ -1,10 +1,5 @@
 AutocatGPT is a simple API service built with Node.js, using the OpenAI API to categorize marketplace products into a multi-level taxonomy based on unstructured descriptions.
 
-## Features
-
-Multi-Level Taxonomy: Supports categorization into a detailed hierarchy of product types, enhancing searchability and organization.
-API Playground: A simple UI to test API requests and view responses directly.
-
 ## Sample .env file
 
 OPENAI_API_KEY="[Your OpenAI API Key]"  
