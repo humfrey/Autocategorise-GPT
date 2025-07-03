@@ -1,55 +1,71 @@
 const OpenAIApi = require("openai").default; // Accessing the default export
 const openai = new OpenAIApi();
-const { industryCategoriesSEO, industryCategoriesMeganav, industryCategoriesautocat, artCategories, commercialCategories } = require("./categories.js");
 
-async function runConversation(lotTitle, auctionTitle=null, taxonomy="industrial-meganav") {
-  // GET PRIMARY CATEGORY AND OTHER METADATA
+const {
+  industryCategoriesSEO,
+  industryCategoriesMeganav,
+  industryCategoriesautocat,
+  artCategories,
+  commercialCategories,
+  alibabaCategories,
+  LiveAuctioneersCategories,
+} = require("./categories.js");
+
+async function runConversation(lotTitle, auctionTitle = null, taxonomy = "industrial-meganav") {
+  // Ensure model is set
+  if (!process.env.MODEL) {
+    throw new Error("Environment variable MODEL is not set.");
+  }
 
   let selectedCategories, competitor;
-  if (taxonomy == "art") {
-    selectedCategories = artCategories;
-    competitor = "Sotheby's, Christie's or Bonhams";
-  }
-  if (taxonomy == "industrial-seo") {
-    selectedCategories = industryCategoriesSEO;
-    competitor = "Home Depot, Grainger or Alibaba";
-  }
-  if (taxonomy == "industrial-meganav") {
-    selectedCategories = industryCategoriesMeganav;
-    competitor = "Home Depot, Grainger or Alibaba";
-  }
-  if (taxonomy == "industrial-autocat") {
-    selectedCategories = industryCategoriesautocat;
-    competitor = "Home Depot, Grainger or Alibaba";
-  }
-  if (taxonomy == "commercial") {
-    selectedCategories = commercialCategories;
-    competitor = "eBay, Amazon, Walmart";
-  }
-   if (taxonomy == "alibabaCategories") {
-    selectedCategories = alibabaCategories;
-    competitor = "Alibaba";
-  }
-  if (taxonomy == "LiveAuctioneersCategories") {
-    selectedCategories = LiveAuctioneersCategories
-    competitor = "Sotheby's, Christie's or Bonhams";
-  }
 
-  // console.log(taxonomy)
+  switch (taxonomy) {
+    case "art":
+      selectedCategories = artCategories;
+      competitor = "Sotheby's, Christie's or Bonhams";
+      break;
+    case "industrial-seo":
+      selectedCategories = industryCategoriesSEO;
+      competitor = "Home Depot, Grainger or Alibaba";
+      break;
+    case "industrial-meganav":
+      selectedCategories = industryCategoriesMeganav;
+      competitor = "Home Depot, Grainger or Alibaba";
+      break;
+    case "industrial-autocat":
+      selectedCategories = industryCategoriesautocat;
+      competitor = "Home Depot, Grainger or Alibaba";
+      break;
+    case "commercial":
+      selectedCategories = commercialCategories;
+      competitor = "eBay, Amazon, Walmart";
+      break;
+    case "alibabaCategories":
+      selectedCategories = alibabaCategories;
+      competitor = "Alibaba";
+      break;
+    case "LiveAuctioneersCategories":
+      selectedCategories = LiveAuctioneersCategories;
+      competitor = "Sotheby's, Christie's or Bonhams";
+      break;
+    default:
+      throw new Error(`Unknown taxonomy: ${taxonomy}`);
+  }
 
   const messages = [
     {
       role: "user",
-      content: `Update metadata for this product: "${lotTitle}". ${auctionTitle ? `This product was purchased in an auction titled "${auctionTitle}"`:""}`,
+      content: `Update metadata for this product: "${lotTitle}". ${
+        auctionTitle ? `This product was purchased in an auction titled "${auctionTitle}"` : ""
+      }`,
     },
   ];
 
-const primaryCategoriesAndDescs = Object.keys(selectedCategories).map(key => {
-    return selectedCategories[key].description 
-        ? `${key}: ${selectedCategories[key].description}`
-        : key;
-});
-
+  const primaryCategoriesAndDescs = Object.keys(selectedCategories).map((key) =>
+    selectedCategories[key].description
+      ? `${key}: ${selectedCategories[key].description}`
+      : key
+  );
 
   const functions = [
     {
@@ -79,43 +95,41 @@ const primaryCategoriesAndDescs = Object.keys(selectedCategories).map(key => {
     },
   ];
 
-  // console.log(primaryCategoriesAndDescs);
-
-  // console.log(messages);
-
-  const response = await openai.chat.completions.create({
-    model: process.env.MODEL,
-    messages: messages,
-    functions: functions,
-    function_call: { name: "update_metadata" },
-    temperature: process.env.temperature,
-  });
+  let response;
+  try {
+    response = await openai.chat.completions.create({
+      model: process.env.MODEL,
+      messages,
+      functions,
+      function_call: { name: "update_metadata" },
+      temperature: process.env.temperature,
+    });
+  } catch (err) {
+    console.error("OpenAI request (primary category) failed:", err);
+    throw err;
+  }
 
   const responseMessage = response.choices[0].message;
 
-  // console.log(responseMessage);
-
-  const parameters = JSON.parse(responseMessage.function_call.arguments);
-const primaryCategory = parameters.primaryCategory.split(":")[0];
-
-  if (!selectedCategories.hasOwnProperty(primaryCategory)) {
-    throw new Error(
-      `Invalid category "${primaryCategory}" returned from OpenAI.`
-    );
+  if (!responseMessage.function_call || !responseMessage.function_call.arguments) {
+    console.error("Missing function_call or arguments in response:", responseMessage);
+    throw new Error("Missing function call arguments in OpenAI response");
   }
 
-  const validSecondaryCategories =
-    selectedCategories[primaryCategory].categories;
+  const parameters = JSON.parse(responseMessage.function_call.arguments);
+  const primaryCategory = parameters.primaryCategory.split(":")[0];
 
-  // ----------
+  if (!selectedCategories.hasOwnProperty(primaryCategory)) {
+    throw new Error(`Invalid category "${primaryCategory}" returned from OpenAI.`);
+  }
+
+  const validSecondaryCategories = selectedCategories[primaryCategory].categories;
 
   const messages2 = [
     {
       role: "user",
       content: `Update metadata for this product: "${lotTitle}". ${
-        auctionTitle
-          ? `This product was purchased in an auction titled "${auctionTitle}"`
-          : ""
+        auctionTitle ? `This product was purchased in an auction titled "${auctionTitle}"` : ""
       }`,
     },
   ];
@@ -144,58 +158,51 @@ const primaryCategory = parameters.primaryCategory.split(":")[0];
     },
   ];
 
-  // console.log(validSecondaryCategories);
-
-  // console.log(messages2);
-
-  const response2 = await openai.chat.completions.create({
-    model: process.env.MODEL,
-    messages: messages2,
-    functions: functions2,
-    function_call: { name: "update_metadata" },
-    temperature: process.env.temperature,
-  });
+  let response2;
+  try {
+    response2 = await openai.chat.completions.create({
+      model: process.env.MODEL,
+      messages: messages2,
+      functions: functions2,
+      function_call: { name: "update_metadata" },
+      temperature: process.env.temperature,
+    });
+  } catch (err) {
+    console.error("OpenAI request (secondary category) failed:", err);
+    throw err;
+  }
 
   const responseMessage2 = response2.choices[0].message;
 
-  // console.log(responseMessage2);
-
-  // ----------
-
-  // Add secondary category, part/accessory and cost to the parameters object
-  
-  parameters.secondaryCategory =
-    JSON.parse(responseMessage2.function_call.arguments).secondaryCategory
-
-
-if (!validSecondaryCategories.includes(parameters.secondaryCategory)) { parameters.secondaryCategory += " - Invalid"; }
-
-
-  parameters.partOrAccessory = JSON.parse(
-    responseMessage2.function_call.arguments
-  ).partOrAccessory;
-
-  let prompt_tokens =
-    response.usage.prompt_tokens + response2.usage.prompt_tokens;
-
-  let completion_tokens =
-    response.usage.completion_tokens + response2.usage.completion_tokens;
-
-  if (process.env.MODEL == "gpt-3.5-turbo") {
-    parameters.cost_usd =
-      (0.0015 / 1000) * prompt_tokens + (0.002 / 1000) * completion_tokens;
+  if (!responseMessage2.function_call || !responseMessage2.function_call.arguments) {
+    console.error("Missing function_call or arguments in second response:", responseMessage2);
+    throw new Error("Missing function call arguments in second OpenAI response");
   }
 
-  if (process.env.MODEL == "gpt-4-turbo") {
+  const args2 = JSON.parse(responseMessage2.function_call.arguments);
+
+  parameters.secondaryCategory = args2.secondaryCategory;
+  parameters.partOrAccessory = args2.partOrAccessory;
+
+  if (!validSecondaryCategories.includes(parameters.secondaryCategory)) {
+    parameters.secondaryCategory += " - Invalid";
+  }
+
+  const prompt_tokens = response.usage.prompt_tokens + response2.usage.prompt_tokens;
+  const completion_tokens = response.usage.completion_tokens + response2.usage.completion_tokens;
+
+  parameters.tokens_used = prompt_tokens + completion_tokens;
+
+  if (process.env.MODEL === "gpt-3.5-turbo") {
+    parameters.cost_usd =
+      (0.0015 / 1000) * prompt_tokens + (0.002 / 1000) * completion_tokens;
+  } else if (process.env.MODEL === "gpt-4-turbo") {
     parameters.cost_usd =
       (0.01 / 1000) * prompt_tokens + (0.03 / 1000) * completion_tokens;
   }
 
-  parameters.tokens_used = prompt_tokens + completion_tokens;
-
   console.log("\nCategory: ", taxonomy, "\nLot: ", lotTitle, "\nAuction: ", auctionTitle, "\n", parameters);
 
-  // Return the updated parameters object
   return parameters;
 }
 
