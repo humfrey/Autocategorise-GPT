@@ -858,106 +858,177 @@ commercialCategories = {
 };
 
 alibabaCategories = {
-  "Home Decor": {
+  "Acura": {
     "description": "",
-    "categories": [
-      "Gifts & Crafts",
-      "Home & Garden",
-      "Construction & Real Estate",
-      "Lights & Lighting",
-      "Furniture",
-      "Pet Supplies"
-    ]
+    "makes": ["MDX", "RDX", "TLX", "Integra", "NSX"]
   },
-  "Industrial": {
+  "Alfa Romeo": {
     "description": "",
-    "categories": [
-      "Industrial Machinery",
-      "Vehicles & Transportation",
-      "Commercial Service Equipment",
-      "Fabrication Services",
-      "Renewable Energy",
-      "Tools & Hardware",
-      "Material Handling",
-      "Power Transmission",
-      "Electrical Equipment & Supplies",
-      "Vehicle Parts & Accessories",
-      "Construction & Building Machinery",
-      "Electronic Components, Accessories & Telecommunications",
-      "Vehicle Accessories, Electronics, & Tools"
-    ]
+    "makes": ["Giulia", "Stelvio", "Tonale", "Giulietta"]
   },
-  "Health & Personal Care": {
+  "Aston Martin": {
     "description": "",
-    "categories": [
-      "Food & Beverage",
-      "Medical devices & Supplies",
-      "Sports & Entertainment",
-      "Packaging & Printing",
-      "Personal Care & Household Cleaning",
-      "Mother, Kids & Toys",
-      "Health Care"
-    ]
+    "makes": ["DB11", "DBS", "Vantage", "DBX"]
   },
-  "Fashion & Beauty": {
+  "Audi": {
     "description": "",
-    "categories": [
-      "Shoes & Accessories",
-      "Apparel & Accessories",
-      "Luggage, Bags & Cases",
-      "Jewelry, Eyewear, Watches & Accessories",
-      "Packaging & Printing",
-      "Beauty"
-    ]
+    "makes": ["A3", "A4", "A6", "Q5", "Q7", "Q8", "R8", "e-tron"]
   },
-  "Sports & Entertainment": {
+  "Bentley": {
     "description": "",
-    "categories": [
-      "Consumer Electronics",
-      "Home Appliances",
-      "Sports & Entertainment"
-    ]
+    "makes": ["Continental GT", "Flying Spur", "Bentayga"]
   },
-  "Tools & Home Improvement": {
+  "BMW": {
     "description": "",
-    "categories": [
-      "Construction & Real Estate",
-      "Tools & Hardware",
-      "Lights & Lighting",
-      "Furniture",
-      "Renewable Energy",
-      "Electrical Equipment & Supplies",
-      "Safety",
-      "Security",
-      "Consumer Electronics"
-    ]
+    "makes": ["3 Series", "5 Series", "7 Series", "X3", "X5", "X7", "M3", "M5"]
   },
-  "Raw Materials": {
+  "Bugatti": {
     "description": "",
-    "categories": [
-      "Chemicals",
-      "Metals & Alloys",
-      "Rubber & Plastics",
-      "Fabric & Textile Raw Material",
-      "Agriculture",
-      "Business Services"
-    ]
+    "makes": ["Chiron", "Veyron", "Divo"]
   },
-  "Maintenance, Repair & Operations": {
+  "Buick": {
     "description": "",
-    "categories": [
-      "Tools & Hardware",
-      "Testing Instrument & Equipment",
-      "Power Transmission",
-      "Material Handling",
-      "Safety",
-      "Security",
-      "School & Office Supplies",
-      "Electrical Equipment & Supplies",
-      "Packaging & Printing",
-      "Renewable Energy",
-      "Environment"
-    ]
+    "makes": ["Enclave", "Encore", "Envision"]
+  },
+  "Cadillac": {
+    "description": "",
+    "makes": ["CT4", "CT5", "Escalade", "XT4", "XT5", "XT6"]
+  },
+  "Chevrolet": {
+    "description": "",
+    "makes": ["Silverado", "Equinox", "Tahoe", "Corvette", "Camaro", "Malibu"]
+  },
+  "Chrysler": {
+    "description": "",
+    "makes": ["300", "Pacifica", "Voyager"]
+  },
+  "Dodge": {
+    "description": "",
+    "makes": ["Charger", "Challenger", "Durango", "Hornet"]
+  },
+  "Ferrari": {
+    "description": "",
+    "makes": ["296 GTB", "SF90 Stradale", "Roma", "812 Superfast", "F8 Tributo"]
+  },
+  "Fiat": {
+    "description": "",
+    "makes": ["500", "500X", "Panda", "Tipo"]
+  },
+  "Ford": {
+    "description": "",
+    "makes": ["F-150", "Explorer", "Mustang", "Bronco", "Escape", "Maverick"]
+  },
+  "Genesis": {
+    "description": "",
+    "makes": ["G70", "G80", "G90", "GV70", "GV80"]
+  },
+  "GMC": {
+    "description": "",
+    "makes": ["Sierra", "Yukon", "Acadia", "Terrain", "Hummer EV"]
+  },
+  "Honda": {
+    "description": "",
+    "makes": ["Accord", "Civic", "CR-V", "Pilot", "Odyssey", "Ridgeline"]
+  },
+  "Hyundai": {
+    "description": "",
+    "makes": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Kona"]
+  },
+  "Infiniti": {
+    "description": "",
+    "makes": ["Q50", "Q60", "QX50", "QX60", "QX80"]
+  },
+  "Jaguar": {
+    "description": "",
+    "makes": ["F-PACE", "E-PACE", "I-PACE", "XF", "F-TYPE"]
+  },
+  "Jeep": {
+    "description": "",
+    "makes": ["Wrangler", "Grand Cherokee", "Cherokee", "Compass", "Gladiator"]
+  },
+  "Kia": {
+    "description": "",
+    "makes": ["Forte", "K5", "Sorento", "Sportage", "Telluride", "Soul"]
+  },
+  "Lamborghini": {
+    "description": "",
+    "makes": ["Urus", "Huracán", "Revuelto", "Aventador"]
+  },
+  "Land Rover": {
+    "description": "",
+    "makes": ["Range Rover", "Defender", "Discovery", "Range Rover Sport", "Range Rover Evoque"]
+  },
+  "Lexus": {
+    "description": "",
+    "makes": ["ES", "IS", "LS", "RX", "NX", "GX", "LX"]
+  },
+  "Lincoln": {
+    "description": "",
+    "makes": ["Navigator", "Aviator", "Corsair", "Nautilus"]
+  },
+  "Maserati": {
+    "description": "",
+    "makes": ["Ghibli", "Levante", "Quattroporte", "MC20", "Grecale"]
+  },
+  "Mazda": {
+    "description": "",
+    "makes": ["Mazda3", "Mazda6", "CX-5", "CX-50", "CX-9", "MX-5 Miata"]
+  },
+  "McLaren": {
+    "description": "",
+    "makes": ["720S", "Artura", "GT", "765LT"]
+  },
+  "Mercedes-Benz": {
+    "description": "",
+    "makes": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "GLS", "G-Class", "AMG GT"]
+  },
+  "Mini": {
+    "description": "",
+    "makes": ["Cooper", "Countryman", "Clubman"]
+  },
+  "Mitsubishi": {
+    "description": "",
+    "makes": ["Outlander", "Eclipse Cross", "Mirage"]
+  },
+  "Nissan": {
+    "description": "",
+    "makes": ["Altima", "Sentra", "Rogue", "Pathfinder", "Titan", "Z"]
+  },
+  "Pagani": {
+    "description": "",
+    "makes": ["Huayra", "Utopia", "Zonda"]
+  },
+  "Porsche": {
+    "description": "",
+    "makes": ["911", "Cayenne", "Macan", "Panamera", "Taycan", "718 Cayman"]
+  },
+  "Ram": {
+    "description": "",
+    "makes": ["1500", "2500", "3500", "ProMaster"]
+  },
+  "Rolls-Royce": {
+    "description": "",
+    "makes": ["Phantom", "Ghost", "Cullinan", "Spectre"]
+  },
+  "Subaru": {
+    "description": "",
+    "makes": ["Outback", "Forester", "Crosstrek", "Ascent", "Impreza", "WRX"]
+  },
+  "Tesla": {
+    "description": "",
+    "makes": ["Model S", "Model 3", "Model X", "Model Y", "Cybertruck"]
+  },
+  "Toyota": {
+    "description": "",
+    "makes": ["Camry", "Corolla", "RAV4", "Highlander", "Tacoma", "Tundra", "Supra"]
+  },
+  "Volkswagen": {
+    "description": "",
+    "makes": ["Golf", "Jetta", "Passat", "Tiguan", "Atlas", "ID.4"]
+  },
+  "Volvo": {
+    "description": "",
+    "makes": ["S60", "S90", "XC40", "XC60", "XC90"]
   }
 };
 
@@ -1055,5 +1126,6 @@ LiveAuctioneersCategories = {
     ]
   }
 };
+
 
 module.exports = { industryCategoriesSEO, industryCategoriesMeganav, industryCategoriesautocat, artCategories, commercialCategories, alibabaCategories, LiveAuctioneersCategories };
