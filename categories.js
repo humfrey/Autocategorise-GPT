@@ -860,175 +860,175 @@ commercialCategories = {
 alibabaCategories = {
   "Acura": {
     "description": "",
-    "makes": ["MDX", "RDX", "TLX", "Integra", "NSX"]
+    "categories": ["MDX", "RDX", "TLX", "Integra", "NSX"]
   },
   "Alfa Romeo": {
     "description": "",
-    "makes": ["Giulia", "Stelvio", "Tonale", "Giulietta"]
+    "categories": ["Giulia", "Stelvio", "Tonale", "Giulietta"]
   },
   "Aston Martin": {
     "description": "",
-    "makes": ["DB11", "DBS", "Vantage", "DBX"]
+    "categories": ["DB11", "DBS", "Vantage", "DBX"]
   },
   "Audi": {
     "description": "",
-    "makes": ["A3", "A4", "A6", "Q5", "Q7", "Q8", "R8", "e-tron"]
+    "categories": ["A3", "A4", "A6", "Q5", "Q7", "Q8", "R8", "e-tron"]
   },
   "Bentley": {
     "description": "",
-    "makes": ["Continental GT", "Flying Spur", "Bentayga"]
+    "categories": ["Continental GT", "Flying Spur", "Bentayga"]
   },
   "BMW": {
     "description": "",
-    "makes": ["3 Series", "5 Series", "7 Series", "X3", "X5", "X7", "M3", "M5"]
+    "categories": ["3 Series", "5 Series", "7 Series", "X3", "X5", "X7", "M3", "M5"]
   },
   "Bugatti": {
     "description": "",
-    "makes": ["Chiron", "Veyron", "Divo"]
+    "categories": ["Chiron", "Veyron", "Divo"]
   },
   "Buick": {
     "description": "",
-    "makes": ["Enclave", "Encore", "Envision"]
+    "categories": ["Enclave", "Encore", "Envision"]
   },
   "Cadillac": {
     "description": "",
-    "makes": ["CT4", "CT5", "Escalade", "XT4", "XT5", "XT6"]
+    "categories": ["CT4", "CT5", "Escalade", "XT4", "XT5", "XT6"]
   },
   "Chevrolet": {
     "description": "",
-    "makes": ["Silverado", "Equinox", "Tahoe", "Corvette", "Camaro", "Malibu"]
+    "categories": ["Silverado", "Equinox", "Tahoe", "Corvette", "Camaro", "Malibu"]
   },
   "Chrysler": {
     "description": "",
-    "makes": ["300", "Pacifica", "Voyager"]
+    "categories": ["300", "Pacifica", "Voyager"]
   },
   "Dodge": {
     "description": "",
-    "makes": ["Charger", "Challenger", "Durango", "Hornet"]
+    "categories": ["Charger", "Challenger", "Durango", "Hornet"]
   },
   "Ferrari": {
     "description": "",
-    "makes": ["296 GTB", "SF90 Stradale", "Roma", "812 Superfast", "F8 Tributo"]
+    "categories": ["296 GTB", "SF90 Stradale", "Roma", "812 Superfast", "F8 Tributo"]
   },
   "Fiat": {
     "description": "",
-    "makes": ["500", "500X", "Panda", "Tipo"]
+    "categories": ["500", "500X", "Panda", "Tipo"]
   },
   "Ford": {
     "description": "",
-    "makes": ["F-150", "Explorer", "Mustang", "Bronco", "Escape", "Maverick"]
+    "categories": ["F-150", "Explorer", "Mustang", "Bronco", "Escape", "Maverick"]
   },
   "Genesis": {
     "description": "",
-    "makes": ["G70", "G80", "G90", "GV70", "GV80"]
+    "categories": ["G70", "G80", "G90", "GV70", "GV80"]
   },
   "GMC": {
     "description": "",
-    "makes": ["Sierra", "Yukon", "Acadia", "Terrain", "Hummer EV"]
+    "categories": ["Sierra", "Yukon", "Acadia", "Terrain", "Hummer EV"]
   },
   "Honda": {
     "description": "",
-    "makes": ["Accord", "Civic", "CR-V", "Pilot", "Odyssey", "Ridgeline"]
+    "categories": ["Accord", "Civic", "CR-V", "Pilot", "Odyssey", "Ridgeline"]
   },
   "Hyundai": {
     "description": "",
-    "makes": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Kona"]
+    "categories": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Kona"]
   },
   "Infiniti": {
     "description": "",
-    "makes": ["Q50", "Q60", "QX50", "QX60", "QX80"]
+    "categories": ["Q50", "Q60", "QX50", "QX60", "QX80"]
   },
   "Jaguar": {
     "description": "",
-    "makes": ["F-PACE", "E-PACE", "I-PACE", "XF", "F-TYPE"]
+    "categories": ["F-PACE", "E-PACE", "I-PACE", "XF", "F-TYPE"]
   },
   "Jeep": {
     "description": "",
-    "makes": ["Wrangler", "Grand Cherokee", "Cherokee", "Compass", "Gladiator"]
+    "categories": ["Wrangler", "Grand Cherokee", "Cherokee", "Compass", "Gladiator"]
   },
   "Kia": {
     "description": "",
-    "makes": ["Forte", "K5", "Sorento", "Sportage", "Telluride", "Soul"]
+    "categories": ["Forte", "K5", "Sorento", "Sportage", "Telluride", "Soul"]
   },
   "Lamborghini": {
     "description": "",
-    "makes": ["Urus", "Huracán", "Revuelto", "Aventador"]
+    "categories": ["Urus", "Huracán", "Revuelto", "Aventador"]
   },
   "Land Rover": {
     "description": "",
-    "makes": ["Range Rover", "Defender", "Discovery", "Range Rover Sport", "Range Rover Evoque"]
+    "categories": ["Range Rover", "Defender", "Discovery", "Range Rover Sport", "Range Rover Evoque"]
   },
   "Lexus": {
     "description": "",
-    "makes": ["ES", "IS", "LS", "RX", "NX", "GX", "LX"]
+    "categories": ["ES", "IS", "LS", "RX", "NX", "GX", "LX"]
   },
   "Lincoln": {
     "description": "",
-    "makes": ["Navigator", "Aviator", "Corsair", "Nautilus"]
+    "categories": ["Navigator", "Aviator", "Corsair", "Nautilus"]
   },
   "Maserati": {
     "description": "",
-    "makes": ["Ghibli", "Levante", "Quattroporte", "MC20", "Grecale"]
+    "categories": ["Ghibli", "Levante", "Quattroporte", "MC20", "Grecale"]
   },
   "Mazda": {
     "description": "",
-    "makes": ["Mazda3", "Mazda6", "CX-5", "CX-50", "CX-9", "MX-5 Miata"]
+    "categories": ["Mazda3", "Mazda6", "CX-5", "CX-50", "CX-9", "MX-5 Miata"]
   },
   "McLaren": {
     "description": "",
-    "makes": ["720S", "Artura", "GT", "765LT"]
+    "categories": ["720S", "Artura", "GT", "765LT"]
   },
   "Mercedes-Benz": {
     "description": "",
-    "makes": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "GLS", "G-Class", "AMG GT"]
+    "categories": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "GLS", "G-Class", "AMG GT"]
   },
   "Mini": {
     "description": "",
-    "makes": ["Cooper", "Countryman", "Clubman"]
+    "categories": ["Cooper", "Countryman", "Clubman"]
   },
   "Mitsubishi": {
     "description": "",
-    "makes": ["Outlander", "Eclipse Cross", "Mirage"]
+    "categories": ["Outlander", "Eclipse Cross", "Mirage"]
   },
   "Nissan": {
     "description": "",
-    "makes": ["Altima", "Sentra", "Rogue", "Pathfinder", "Titan", "Z"]
+    "categories": ["Altima", "Sentra", "Rogue", "Pathfinder", "Titan", "Z"]
   },
   "Pagani": {
     "description": "",
-    "makes": ["Huayra", "Utopia", "Zonda"]
+    "categories": ["Huayra", "Utopia", "Zonda"]
   },
   "Porsche": {
     "description": "",
-    "makes": ["911", "Cayenne", "Macan", "Panamera", "Taycan", "718 Cayman"]
+    "categories": ["911", "Cayenne", "Macan", "Panamera", "Taycan", "718 Cayman"]
   },
   "Ram": {
     "description": "",
-    "makes": ["1500", "2500", "3500", "ProMaster"]
+    "categories": ["1500", "2500", "3500", "ProMaster"]
   },
   "Rolls-Royce": {
     "description": "",
-    "makes": ["Phantom", "Ghost", "Cullinan", "Spectre"]
+    "categories": ["Phantom", "Ghost", "Cullinan", "Spectre"]
   },
   "Subaru": {
     "description": "",
-    "makes": ["Outback", "Forester", "Crosstrek", "Ascent", "Impreza", "WRX"]
+    "categories": ["Outback", "Forester", "Crosstrek", "Ascent", "Impreza", "WRX"]
   },
   "Tesla": {
     "description": "",
-    "makes": ["Model S", "Model 3", "Model X", "Model Y", "Cybertruck"]
+    "categories": ["Model S", "Model 3", "Model X", "Model Y", "Cybertruck"]
   },
   "Toyota": {
     "description": "",
-    "makes": ["Camry", "Corolla", "RAV4", "Highlander", "Tacoma", "Tundra", "Supra"]
+    "categories": ["Camry", "Corolla", "RAV4", "Highlander", "Tacoma", "Tundra", "Supra"]
   },
   "Volkswagen": {
     "description": "",
-    "makes": ["Golf", "Jetta", "Passat", "Tiguan", "Atlas", "ID.4"]
+    "categories": ["Golf", "Jetta", "Passat", "Tiguan", "Atlas", "ID.4"]
   },
   "Volvo": {
     "description": "",
-    "makes": ["S60", "S90", "XC40", "XC60", "XC90"]
+    "categories": ["S60", "S90", "XC40", "XC60", "XC90"]
   }
 };
 
